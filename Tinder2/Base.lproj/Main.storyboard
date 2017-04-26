@@ -22,15 +22,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="nav_bar" id="18a-h2-Agk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ryan" id="7YM-tX-6o5">
-                                <rect key="frame" x="16" y="59" width="288" height="279"/>
+                                <rect key="frame" x="16" y="90" width="288" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="SZv-JP-Mlj" appends="YES" id="HLu-gs-qSb"/>
+                                    <outletCollection property="gestureRecognizers" destination="imL-m5-Qx9" appends="YES" id="nlH-WK-zyT"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -46,13 +47,56 @@
                         <action selector="onCardPan:" destination="BYZ-38-t0r" id="h85-cG-ahI"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="imL-m5-Qx9">
+                    <connections>
+                        <segue destination="f9d-Xj-2rN" kind="modal" id="I9b-hh-rj6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="73" y="137"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="m7b-a7-Rrb">
+            <objects>
+                <viewController id="f9d-Xj-2rN" customClass="ProfileViewController" customModule="Tinder2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oYb-s6-xjy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="nav_bar2" id="U5X-uj-PVo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="H8x-BG-2xo" appends="YES" id="CRa-lF-Gb8"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KUM-Jx-4v4">
+                                <rect key="frame" x="16" y="90" width="288" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="KUM-Jx-4v4" id="PwA-7m-g9d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G94-aG-4uW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H8x-BG-2xo">
+                    <connections>
+                        <action selector="onDoneTap:" destination="f9d-Xj-2rN" id="wzL-2L-vQz"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="407" y="137"/>
         </scene>
     </scenes>
     <resources>
         <image name="action_buttons" width="320" height="108"/>
         <image name="nav_bar" width="320" height="65"/>
+        <image name="nav_bar2" width="320" height="65"/>
         <image name="ryan" width="449" height="514"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -12,6 +12,7 @@
 		751BCBF91EB0857F00104576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751BCBF81EB0857F00104576 /* Assets.xcassets */; };
 		751BCBFC1EB0857F00104576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751BCBFA1EB0857F00104576 /* LaunchScreen.storyboard */; };
 		751BCC041EB0867300104576 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751BCC031EB0867300104576 /* CardsViewController.swift */; };
+		751BCC061EB0986A00104576 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751BCC051EB0986A00104576 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		751BCBFB1EB0857F00104576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		751BCBFD1EB0857F00104576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751BCC031EB0867300104576 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		751BCC051EB0986A00104576 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				751BCBF11EB0857F00104576 /* AppDelegate.swift */,
 				751BCBF51EB0857F00104576 /* Main.storyboard */,
+				751BCC051EB0986A00104576 /* ProfileViewController.swift */,
 				751BCBF81EB0857F00104576 /* Assets.xcassets */,
 				751BCC031EB0867300104576 /* CardsViewController.swift */,
 				751BCBFA1EB0857F00104576 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751BCC061EB0986A00104576 /* ProfileViewController.swift in Sources */,
 				751BCBF21EB0857F00104576 /* AppDelegate.swift in Sources */,
 				751BCC041EB0867300104576 /* CardsViewController.swift in Sources */,
 			);
