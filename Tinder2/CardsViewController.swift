@@ -11,7 +11,7 @@ import UIKit
 class CardsViewController: UIViewController {
 
     var cardInitialCenter: CGPoint!
-    
+    var translationX:CGFloat!
     @IBOutlet weak var cardImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ class CardsViewController: UIViewController {
         let translation = sender.translation(in: self.view)
         //cardImageView.transform = CGAffineTransform(rotationAngle: CGFloat(45 * M_PI / 180))
         
+        
         if sender.state == .began {
             if cardInitialCenter == nil {
                 cardInitialCenter = cardImageView.frame.origin
@@ -39,7 +40,7 @@ class CardsViewController: UIViewController {
         } else if sender.state == .changed {
             cardImageView.center = CGPoint(x:cardImageView.center.x + translation.x, y: cardImageView.center.y)
             print("Gesture is changing")
-            
+            translationX = translation.x
             if translation.x > 0 {
                 if location.y < cardInitialCenter.y+cardImageView.image!.size.height/2 {
                     cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
@@ -62,7 +63,9 @@ class CardsViewController: UIViewController {
         } else if sender.state == .ended {
             print("Gesture ended")
             UIView.animate(withDuration: 0.5, animations: {
-                if self.cardImageView.frame.origin.x - self.cardInitialCenter.x > 50 {
+                //print(self.cardImageView.frame.origin.x - self.cardInitialCenter.x)
+                print(self.translationX)
+                if self.translationX > 50 {
                     if location.y < self.cardInitialCenter.y+self.cardImageView.image!.size.height/2 {
                         self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
                         self.cardImageView.frame.origin.x += 200
@@ -74,7 +77,7 @@ class CardsViewController: UIViewController {
                     }
 
                 }
-                else if self.cardImageView.frame.origin.x - self.cardInitialCenter.x < -50 {
+                else if self.translationX < -50 {
                     if location.y < self.cardInitialCenter.y+self.cardImageView.image!.size.height/2{
                         self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(-1 * M_PI / 180))
                         self.cardImageView.frame.origin.x -= 200
