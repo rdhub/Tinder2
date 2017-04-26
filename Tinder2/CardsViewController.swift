@@ -41,53 +41,54 @@ class CardsViewController: UIViewController {
             print("Gesture is changing")
             
             if translation.x > 0 {
-                if location.y < cardInitialCenter.y {
-                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(182 * M_PI / 180))
+                if location.y < cardInitialCenter.y+cardImageView.image!.size.height/2 {
+                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
+                    
                 }
                 else {
-                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(-2 * M_PI / 180))
+                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(-1 * M_PI / 180))
                     
                 }
             }
             if translation.x < 0 {
-                if location.y < cardInitialCenter.y {
-                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(-2 * M_PI / 180))
+                if location.y < cardInitialCenter.y+cardImageView.image!.size.height/2 {
+                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(-1 * M_PI / 180))
                 }
                 else {
-                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(2 * M_PI / 180))
+                    cardImageView.transform = cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
                 }
             }
             sender.setTranslation(CGPoint.zero, in: self.view)
         } else if sender.state == .ended {
             print("Gesture ended")
             UIView.animate(withDuration: 0.5, animations: {
-                /*if self.cardImageView.frame.origin.x - self.cardInitialCenter.x > 50 {
-                    if location.y < self.cardInitialCenter.y {
-                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(2 * M_PI / 180))
+                if self.cardImageView.frame.origin.x - self.cardInitialCenter.x > 50 {
+                    if location.y < self.cardInitialCenter.y+self.cardImageView.image!.size.height/2 {
+                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
                         self.cardImageView.frame.origin.x += 200
                     }
                     else {
-                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(-2 * M_PI / 180))
+                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(-1 * M_PI / 180))
                         self.cardImageView.frame.origin.x += 200
                         
                     }
 
                 }
                 else if self.cardImageView.frame.origin.x - self.cardInitialCenter.x < -50 {
-                    if location.y < self.cardInitialCenter.y {
-                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(-2 * M_PI / 180))
+                    if location.y < self.cardInitialCenter.y+self.cardImageView.image!.size.height/2{
+                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(-1 * M_PI / 180))
                         self.cardImageView.frame.origin.x -= 200
                     }
                     else {
-                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(2 * M_PI / 180))
+                        self.cardImageView.transform = self.cardImageView.transform.rotated(by: CGFloat(1 * M_PI / 180))
                         self.cardImageView.frame.origin.x -= 200
                     }
                 }
-                else {*/
+                else {
                     self.cardImageView.transform = CGAffineTransform.identity
                     self.cardImageView.frame.origin.y = self.cardInitialCenter.y
                     self.cardImageView.frame.origin.x = self.cardInitialCenter.x
-                //}
+                }
             })
         }
     }
@@ -99,6 +100,7 @@ class CardsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let profileViewController = segue.destination as! ProfileViewController
+        profileViewController.detailImageView = cardImageView
         profileViewController.detailImageView.image = cardImageView.image
     }
     
