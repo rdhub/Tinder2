@@ -11,9 +11,11 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
+    
+    var cardImage: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        detailImageView.image = cardImage
         // Do any additional setup after loading the view.
     }
 
